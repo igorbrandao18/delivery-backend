@@ -5,7 +5,7 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 ## Progresso Geral
 - **Estrutura do Backend**: 15% (definição inicial da estrutura, configuração do Swagger)
 - **Módulo de Restaurantes**: 30% (estrutura inicial criada, testes realizados com sucesso)
-- **Módulo de Menus**: 70% (estrutura inicial criada, CRUD implementado, seções e modificadores adicionados, testes implementados)
+- **Módulo de Menus**: 0% (módulo excluído)
 - **Módulo de Pedidos**: 0%
 - **Módulo de Relatórios**: 0%
 - **Módulo de Endereços**: 0%
@@ -34,9 +34,20 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 
 ### Módulo de Menus
 - **Descrição**: Implementação do módulo para gerenciar menus.
-- **Progresso**: 70%
-- **Status**: Estrutura inicial criada, CRUD implementado, seções e modificadores adicionados, testes implementados
-- **Funcionalidades Implementadas**:
+- **Progresso**: 0% (módulo excluído)
+- **Status**: A ser implementado
+- **Endpoints Pendentes**:
+  - POST /menus/sections
+  - GET /menus/sections
+  - GET /menus/sections/:id
+  - PATCH /menus/sections/:id
+  - DELETE /menus/sections/:id
+  - POST /menus/sections/:sectionId/items
+  - GET /menus/sections/:sectionId/items
+  - GET /menus/sections/:sectionId/items/:id
+  - PATCH /menus/sections/:sectionId/items/:id
+  - DELETE /menus/sections/:sectionId/items/:id
+- **Funcionalidades**:
   - CRUD básico de itens do menu
   - Relacionamento com restaurantes
   - Validação de dados
@@ -48,19 +59,6 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
   - Controle de visibilidade
   - Controle de disponibilidade
   - Testes unitários e de integração
-- **Endpoints Implementados**:
-  - Seções:
-    - POST /menus/sections
-    - GET /menus/sections
-    - GET /menus/sections/:id
-    - PATCH /menus/sections/:id
-    - DELETE /menus/sections/:id
-  - Itens:
-    - POST /menus/sections/:sectionId/items
-    - GET /menus/sections/:sectionId/items
-    - GET /menus/sections/:sectionId/items/:id
-    - PATCH /menus/sections/:sectionId/items/:id
-    - DELETE /menus/sections/:sectionId/items/:id
 - **Testes Implementados**:
   - Testes unitários para o serviço de menus
   - Testes de integração para o controlador de menus
