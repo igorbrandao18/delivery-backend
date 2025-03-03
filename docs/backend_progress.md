@@ -5,7 +5,7 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 ## Progresso Geral
 - **Estrutura do Backend**: 15% (definição inicial da estrutura, configuração do Swagger)
 - **Módulo de Restaurantes**: 30% (estrutura inicial criada, testes realizados com sucesso)
-- **Módulo de Menus**: 0%
+- **Módulo de Menus**: 30% (estrutura inicial criada, CRUD implementado)
 - **Módulo de Pedidos**: 0%
 - **Módulo de Relatórios**: 0%
 - **Módulo de Endereços**: 0%
@@ -22,7 +22,7 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 - **Atualizações Recentes**:
   - Configuração do Swagger para documentação da API
   - Estrutura base do projeto definida
-  - Módulos principais criados (Auth e Restaurants)
+  - Módulos principais criados (Auth, Restaurants e Menus)
 
 ### Módulo de Restaurantes
 - **Descrição**: Implementação do módulo para gerenciar restaurantes.
@@ -34,14 +34,19 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 
 ### Módulo de Menus
 - **Descrição**: Implementação do módulo para gerenciar menus.
-- **Progresso**: 0%
-- **Status**: A ser implementado
-- **Endpoints Pendentes**:
-  - GET /menu
-  - POST /menu
-  - PUT /menu/:id
-  - DELETE /menu/:id
-- **Dados**: Nome, Descrição, Preço, Imagem, Categoria
+- **Progresso**: 30%
+- **Status**: Estrutura inicial criada, CRUD implementado
+- **Funcionalidades Implementadas**:
+  - CRUD básico de itens do menu
+  - Relacionamento com restaurantes
+  - Validação de dados
+  - Proteção de rotas com JWT
+- **Endpoints Implementados**:
+  - GET /menus
+  - POST /menus
+  - GET /menus/:id
+  - PATCH /menus/:id
+  - DELETE /menus/:id
 
 ### Módulo de Pedidos
 - **Descrição**: Implementação do módulo para gerenciar pedidos.
