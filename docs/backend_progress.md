@@ -6,10 +6,10 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 - **Estrutura do Backend**: 15% (definição inicial da estrutura, configuração do Swagger)
 - **Módulo de Restaurantes**: 30% (estrutura inicial criada, testes realizados com sucesso)
 - **Módulo de Menus**: 100% (módulo implementado, testado e funcionando corretamente)
-- **Módulo de Pedidos**: 0%
-- **Módulo de Relatórios**: 0%
-- **Módulo de Endereços**: 0%
-- **Módulo de Pagamentos**: 0%
+- **Módulo de Pedidos**: 0% (a ser implementado)
+- **Módulo de Relatórios**: 0% (a ser implementado)
+- **Módulo de Endereços**: 0% (a ser implementado)
+- **Módulo de Pagamentos**: 0% (a ser implementado)
 - **Autenticação**: 30% (estrutura inicial criada, testes em andamento, registro em desenvolvimento)
 - **Documentação da API**: 10% (configuração inicial do Swagger)
 - **Testes**: 100% (todos os testes do módulo de menus passaram com sucesso)
