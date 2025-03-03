@@ -2,13 +2,16 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { OrdersService } from './orders.service';
 import { CreateOrderDto, OrderItemDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
+import { OrdersGateway } from './orders.gateway';
+
+const mockOrdersGateway = { notifyNewOrder: jest.fn() };
 
 describe('OrdersService', () => {
   let service: OrdersService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [OrdersService],
+      providers: [OrdersService, { provide: OrdersGateway, useValue: mockOrdersGateway }],
     }).compile();
 
     service = module.get<OrdersService>(OrdersService);
@@ -83,7 +86,7 @@ describe('OrdersService', () => {
       };
       const orderItem = service.create(createOrderDto);
       const result = service.remove(orderItem.id);
-      expect(result).toHaveLength(1);
+      expect(result).toEqual(orderItem);
       expect(service.findOne(orderItem.id)).toBeUndefined();
     });
   });
