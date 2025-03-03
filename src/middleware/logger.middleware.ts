@@ -8,7 +8,13 @@ export class LoggerMiddleware implements NestMiddleware {
 
   use(req: Request, res: Response, next: NextFunction) {
     const { method, originalUrl } = req;
-    this.logger.logRoute(method, originalUrl);
+    const module = this.extractModuleFromUrl(originalUrl);
+    this.logger.logRoute(method, originalUrl, module);
     next();
+  }
+
+  private extractModuleFromUrl(url: string): string {
+    const path = url.split('/')[1];
+    return path || 'default';
   }
 } 
