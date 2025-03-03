@@ -5,14 +5,14 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 ## Progresso Geral
 - **Estrutura do Backend**: 15% (definição inicial da estrutura, configuração do Swagger)
 - **Módulo de Restaurantes**: 30% (estrutura inicial criada, testes realizados com sucesso)
-- **Módulo de Menus**: 50% (estrutura inicial criada, CRUD implementado, seções e modificadores adicionados)
+- **Módulo de Menus**: 70% (estrutura inicial criada, CRUD implementado, seções e modificadores adicionados, testes implementados)
 - **Módulo de Pedidos**: 0%
 - **Módulo de Relatórios**: 0%
 - **Módulo de Endereços**: 0%
 - **Módulo de Pagamentos**: 0%
 - **Autenticação**: 30% (estrutura inicial criada, testes em andamento, registro em desenvolvimento)
 - **Documentação da API**: 10% (configuração inicial do Swagger)
-- **Testes**: 30% (testes do módulo de restaurantes realizados com sucesso)
+- **Testes**: 50% (testes do módulo de restaurantes e menus realizados com sucesso)
 
 ## Detalhes das Etapas
 
@@ -34,8 +34,8 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 
 ### Módulo de Menus
 - **Descrição**: Implementação do módulo para gerenciar menus.
-- **Progresso**: 50%
-- **Status**: Estrutura inicial criada, CRUD implementado, seções e modificadores adicionados
+- **Progresso**: 70%
+- **Status**: Estrutura inicial criada, CRUD implementado, seções e modificadores adicionados, testes implementados
 - **Funcionalidades Implementadas**:
   - CRUD básico de itens do menu
   - Relacionamento com restaurantes
@@ -47,6 +47,7 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
   - Ordenação por posição
   - Controle de visibilidade
   - Controle de disponibilidade
+  - Testes unitários e de integração
 - **Endpoints Implementados**:
   - Seções:
     - POST /menus/sections
@@ -60,6 +61,11 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
     - GET /menus/sections/:sectionId/items/:id
     - PATCH /menus/sections/:sectionId/items/:id
     - DELETE /menus/sections/:sectionId/items/:id
+- **Testes Implementados**:
+  - Testes unitários para o serviço de menus
+  - Testes de integração para o controlador de menus
+  - Cobertura de casos de sucesso e erro
+  - Testes de autenticação e autorização
 
 ### Módulo de Pedidos
 - **Descrição**: Implementação do módulo para gerenciar pedidos.
@@ -117,9 +123,11 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 
 ### Testes
 - **Descrição**: Implementação de testes unitários e de integração.
-- **Progresso**: 30%
-- **Status**: Testes do módulo de restaurantes realizados com sucesso
+- **Progresso**: 50%
+- **Status**: Testes do módulo de restaurantes e menus realizados com sucesso
 - **Cobertura**:
   - Testes unitários do módulo de restaurantes
   - Testes de integração do módulo de restaurantes
+  - Testes unitários do módulo de menus
+  - Testes de integração do módulo de menus
   - Testes de autenticação em desenvolvimento 
