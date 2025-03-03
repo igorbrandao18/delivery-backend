@@ -5,7 +5,7 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 ## Progresso Geral
 - **Estrutura do Backend**: 15% (definição inicial da estrutura, configuração do Swagger)
 - **Módulo de Restaurantes**: 30% (estrutura inicial criada, testes realizados com sucesso)
-- **Módulo de Menus**: 30% (estrutura inicial criada, CRUD implementado)
+- **Módulo de Menus**: 50% (estrutura inicial criada, CRUD implementado, seções e modificadores adicionados)
 - **Módulo de Pedidos**: 0%
 - **Módulo de Relatórios**: 0%
 - **Módulo de Endereços**: 0%
@@ -34,19 +34,32 @@ Este documento registra a evolução do desenvolvimento do backend do sistema de
 
 ### Módulo de Menus
 - **Descrição**: Implementação do módulo para gerenciar menus.
-- **Progresso**: 30%
-- **Status**: Estrutura inicial criada, CRUD implementado
+- **Progresso**: 50%
+- **Status**: Estrutura inicial criada, CRUD implementado, seções e modificadores adicionados
 - **Funcionalidades Implementadas**:
   - CRUD básico de itens do menu
   - Relacionamento com restaurantes
   - Validação de dados
   - Proteção de rotas com JWT
+  - Seções de menu (categorias)
+  - Modificadores de itens (opções de personalização)
+  - Imagens para seções e itens
+  - Ordenação por posição
+  - Controle de visibilidade
+  - Controle de disponibilidade
 - **Endpoints Implementados**:
-  - GET /menus
-  - POST /menus
-  - GET /menus/:id
-  - PATCH /menus/:id
-  - DELETE /menus/:id
+  - Seções:
+    - POST /menus/sections
+    - GET /menus/sections
+    - GET /menus/sections/:id
+    - PATCH /menus/sections/:id
+    - DELETE /menus/sections/:id
+  - Itens:
+    - POST /menus/sections/:sectionId/items
+    - GET /menus/sections/:sectionId/items
+    - GET /menus/sections/:sectionId/items/:id
+    - PATCH /menus/sections/:sectionId/items/:id
+    - DELETE /menus/sections/:sectionId/items/:id
 
 ### Módulo de Pedidos
 - **Descrição**: Implementação do módulo para gerenciar pedidos.

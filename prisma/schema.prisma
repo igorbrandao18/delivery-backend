@@ -14,9 +14,9 @@ datasource db {
 }
 
 model Restaurant {
-  id              Int     @id @default(autoincrement())
+  id              Int         @id @default(autoincrement())
   name            String
-  email           String  @unique
+  email           String      @unique
   password        String
   address1        String
   address2        String?
@@ -31,29 +31,88 @@ model Restaurant {
   ccy             String
   ccySymbol       String
   currency        String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  menuItems       MenuItem[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  menuSections    MenuSection[]
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
   password  String
   name      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model MenuItem {
-  id          Int       @id @default(autoincrement())
+model MenuSection {
+  id          Int         @id @default(autoincrement())
   name        String
-  description String
-  price       Float
-  image       String?
-  category    String
-  restaurant  Restaurant @relation(fields: [restaurantId], references: [id])
+  description String?
+  position    Int         @default(0)
+  visible     Boolean     @default(true)
+  restaurant  Restaurant  @relation(fields: [restaurantId], references: [id])
   restaurantId Int
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  images      MenuImage[]
+  items       MenuItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model MenuItem {
+  id              Int         @id @default(autoincrement())
+  name            String
+  description     String?
+  alcoholic       Boolean     @default(false)
+  price           Float
+  position        Int         @default(0)
+  visible         Boolean     @default(true)
+  availabilityType String     @default("AVAILABLE_NOW")
+  sku             String?
+  available       Boolean     @default(true)
+  section         MenuSection @relation(fields: [sectionId], references: [id])
+  sectionId       Int
+  images          MenuImage[]
+  modifiers       MenuModifier[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model MenuImage {
+  id          Int         @id @default(autoincrement())
+  image       String
+  menuItem    MenuItem?   @relation(fields: [menuItemId], references: [id])
+  menuItemId  Int?
+  menuSection MenuSection? @relation(fields: [menuSectionId], references: [id])
+  menuSectionId Int?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model MenuModifier {
+  id          Int         @id @default(autoincrement())
+  name        String
+  minChoices  Int         @default(0)
+  maxChoices  Int         @default(1)
+  menuItem    MenuItem    @relation(fields: [menuItemId], references: [id])
+  menuItemId  Int
+  items       ModifierItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model ModifierItem {
+  id              Int         @id @default(autoincrement())
+  name            String
+  price           Float
+  maxChoices      Int         @default(1)
+  position        Int         @default(0)
+  visible         Boolean     @default(true)
+  availabilityType String     @default("AVAILABLE_NOW")
+  qty             Int?
+  available       Boolean     @default(true)
+  modifier        MenuModifier @relation(fields: [modifierId], references: [id])
+  modifierId      Int
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
 }
