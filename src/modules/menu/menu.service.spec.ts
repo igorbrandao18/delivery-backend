@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MenuService } from './menu.service';
-import { CreateMenuDto } from './dto/create-menu.dto';
+import { CreateMenuDto, SectionDto, ItemDto } from './dto/create-menu.dto';
 import { UpdateMenuDto } from './dto/update-menu.dto';
 
 describe('MenuService', () => {
@@ -23,9 +23,16 @@ describe('MenuService', () => {
       const createMenuDto: CreateMenuDto = {
         name: 'Pizza',
         description: 'Delicious cheese pizza',
-        price: 10,
-        image: 'pizza.jpg',
-        category: 'Main Course',
+        sections: [
+          {
+            id: 1,
+            name: 'Burgers',
+            position: 0,
+            visible: 1,
+            images: [],
+            items: []
+          }
+        ]
       };
       const result = service.create(createMenuDto);
       expect(result).toHaveProperty('id');
@@ -38,9 +45,16 @@ describe('MenuService', () => {
       const createMenuDto: CreateMenuDto = {
         name: 'Pizza',
         description: 'Delicious cheese pizza',
-        price: 10,
-        image: 'pizza.jpg',
-        category: 'Main Course',
+        sections: [
+          {
+            id: 1,
+            name: 'Burgers',
+            position: 0,
+            visible: 1,
+            images: [],
+            items: []
+          }
+        ]
       };
       service.create(createMenuDto);
       const result = service.findAll();
@@ -53,9 +67,16 @@ describe('MenuService', () => {
       const createMenuDto: CreateMenuDto = {
         name: 'Pizza',
         description: 'Delicious cheese pizza',
-        price: 10,
-        image: 'pizza.jpg',
-        category: 'Main Course',
+        sections: [
+          {
+            id: 1,
+            name: 'Burgers',
+            position: 0,
+            visible: 1,
+            images: [],
+            items: []
+          }
+        ]
       };
       const menuItem = service.create(createMenuDto);
       const result = service.findOne(menuItem.id);
@@ -68,16 +89,23 @@ describe('MenuService', () => {
       const createMenuDto: CreateMenuDto = {
         name: 'Pizza',
         description: 'Delicious cheese pizza',
-        price: 10,
-        image: 'pizza.jpg',
-        category: 'Main Course',
+        sections: [
+          {
+            id: 1,
+            name: 'Burgers',
+            position: 0,
+            visible: 1,
+            images: [],
+            items: []
+          }
+        ]
       };
       const menuItem = service.create(createMenuDto);
-      const updateMenuDto: UpdateMenuDto = { price: 12 };
+      const updateMenuDto: UpdateMenuDto = { name: 'Updated Pizza' };
       const result = service.update(menuItem.id, updateMenuDto);
       expect(result).not.toBeNull();
       if (result) {
-        expect(result.price).toEqual(12);
+        expect(result.name).toEqual('Updated Pizza');
       }
     });
   });
@@ -87,9 +115,16 @@ describe('MenuService', () => {
       const createMenuDto: CreateMenuDto = {
         name: 'Pizza',
         description: 'Delicious cheese pizza',
-        price: 10,
-        image: 'pizza.jpg',
-        category: 'Main Course',
+        sections: [
+          {
+            id: 1,
+            name: 'Burgers',
+            position: 0,
+            visible: 1,
+            images: [],
+            items: []
+          }
+        ]
       };
       const menuItem = service.create(createMenuDto);
       const result = service.remove(menuItem.id);

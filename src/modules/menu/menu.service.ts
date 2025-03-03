@@ -1,14 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMenuDto } from './dto/create-menu.dto';
+import { CreateMenuDto, SectionDto, ItemDto } from './dto/create-menu.dto';
 import { UpdateMenuDto } from './dto/update-menu.dto';
 
 interface MenuItem {
   id: string;
   name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
+  description?: string;
+  sections: SectionDto[];
 }
 
 @Injectable()
