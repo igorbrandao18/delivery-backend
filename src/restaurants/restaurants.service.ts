@@ -3,12 +3,10 @@ import { PrismaService } from '../prisma/prisma.service';
 import { Restaurant } from '@prisma/client';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
-import { LoginRestaurantDto } from './dto/login-restaurant.dto';
-import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class RestaurantsService {
-  constructor(private prisma: PrismaService, private readonly jwtService: JwtService) {}
+  constructor(private prisma: PrismaService) {}
 
   async create(createRestaurantDto: CreateRestaurantDto): Promise<Restaurant> {
     return this.prisma.restaurant.create({
@@ -37,20 +35,5 @@ export class RestaurantsService {
     return this.prisma.restaurant.delete({
       where: { id },
     });
-  }
-
-  async login(loginRestaurantDto: LoginRestaurantDto) {
-    // Aqui você deve implementar a lógica de autenticação, como verificar as credenciais no banco de dados.
-    // Se as credenciais estiverem corretas, retorne um token JWT.
-    const { email, password } = loginRestaurantDto;
-
-    // Lógica de autenticação (exemplo simplificado)
-    if (email === 'test@example.com' && password === 'password123') {
-      const payload = { email }; // Payload do token
-      return {
-        access_token: this.jwtService.sign(payload),
-      };
-    }
-    throw new Error('Invalid credentials');
   }
 } 

@@ -3,7 +3,6 @@ import { RestaurantsService } from './restaurants.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { LoginRestaurantDto } from './dto/login-restaurant.dto';
 
 @Controller('restaurants')
 export class RestaurantsController {
@@ -31,10 +30,5 @@ export class RestaurantsController {
   @UseGuards(JwtAuthGuard)
   async remove(@Param('id') id: string) {
     return this.restaurantsService.remove(+id);
-  }
-
-  @Post('login')
-  async login(@Body() loginRestaurantDto: LoginRestaurantDto) {
-    return this.restaurantsService.login(loginRestaurantDto);
   }
 } 
