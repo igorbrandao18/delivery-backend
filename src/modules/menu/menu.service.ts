@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateMenuDto, SectionDto, ItemDto } from './dto/create-menu.dto';
 import { UpdateMenuDto } from './dto/update-menu.dto';
 
-interface MenuItem {
+export interface MenuItem {
   id: string;
   name: string;
   description?: string;

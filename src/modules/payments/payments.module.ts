@@ -6,4 +6,6 @@ import { PaymentsController } from './payments.controller';
   controllers: [PaymentsController],
   providers: [PaymentsService],
 })
-export class PaymentsModule {} 
+export class PaymentsModule {
+  // Removed Swagger setup
+} 
